@@ -25,28 +25,27 @@ Copy-Item .env.example .env.local
 
 Open [http://localhost:3000](http://localhost:3000).
 
-`npm run build` then `npm start` runs the production server. `npm run lint` runs ESLint.
+`npm run build` writes a static site to `out/`, including `out/index.html`. GitHub Pages serves that folder. `npm run dev` is still the local preview. `npm run lint` runs ESLint.
 
-The public inbox is mickey-vps@outlook.com. Quote and catalog forms validate either way. With `RESEND_API_KEY` or `SMTP_HOST`, the server sends the message. Without them, the form opens a mailto to that inbox so the visitor can send it from their own mail app. Do not commit an Outlook password. Use an app password in `SMTP_PASS` only on the host.
+The public inbox is mickey-vps@outlook.com. Quote and catalog forms check the fields in the browser, then open a message to that inbox in the visitor’s email app. GitHub Pages cannot run a mail server, so the site does not send mail itself.
 
 ## Environment variables
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical URL, sitemap, Open Graph, and JSON-LD. No trailing slash. Set this to the live domain before launch. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL, sitemap, Open Graph, and JSON-LD. No trailing slash. The Pages workflow sets this to the GitHub Pages address unless a repository variable overrides it. |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 ID (`G-XXXXXXXX`). Leave empty to keep the tag off. |
 | `NEXT_PUBLIC_META_PIXEL_ID` | Meta Pixel ID (digits only). Leave empty to keep the pixel off. |
-| `CONTACT_TO_EMAIL` | Inbox that receives quote and catalog requests. |
-| `CONTACT_FROM_EMAIL` | From address. For Resend, this must be on a verified domain. |
-| `RESEND_API_KEY` | Preferred mailer. Used when this key is present. |
-| `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` | Nodemailer fallback, used only when `RESEND_API_KEY` is empty and `SMTP_HOST` is set. Port `465` turns on implicit TLS. |
 
-## Deploy on Vercel
+## Deploy on GitHub Pages
 
-1. Push the repository and import the project in Vercel. Framework preset: Next.js. No custom build command.
-2. Add the environment variables above to Production (and Preview, if you want forms to send there).
-3. Set `NEXT_PUBLIC_SITE_URL` to the production origin, for example `https://www.example.com`.
-4. Deploy. API routes need the Node.js runtime, which is the default on Vercel. Do not turn this project into a static export.
+The repository is [david-foy89/vps](https://github.com/david-foy89/vps). GitHub Pages only serves static files, and it requires an index page at the site root. `npm run build` creates that file at `out/index.html`, plus an `index.html` in each route folder (`out/about/index.html`, and so on).
+
+`.github/workflows/pages.yml` builds the site and publishes the `out` folder on every push to `main`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+
+The project site is served from `https://david-foy89.github.io/vps/`. The workflow sets `NEXT_PUBLIC_SITE_URL` to that address unless the repository variable `NEXT_PUBLIC_SITE_URL` is set. On GitHub Actions the asset prefix is `/vps`, taken from the repository name. A repository named `*.github.io` is served from the domain root and does not get that prefix.
+
+Local `npm run dev` stays at [http://localhost:3000](http://localhost:3000) with no prefix.
 
 ## Images
 

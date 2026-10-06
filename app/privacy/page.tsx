@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             Quote and catalog forms collect the fields you fill in: name, company, job title, email, phone, location, product interest, and message, depending on the form. A hidden field is used to catch automated spam. If that field is filled, the submission is discarded and is not treated as a real inquiry.
           </p>
           <p>
-            Messages go to {site.email}. If the server has Resend or SMTP configured, it sends the message directly. Otherwise the form opens a message in the visitor’s email app addressed to that inbox. Do not send payment card numbers or passwords through the form.
+            The form opens a message in the visitor’s email app addressed to {site.email}. Sending that message delivers the request. Do not send payment card numbers or passwords through the form.
           </p>
           <h2>Analytics</h2>
           <p>

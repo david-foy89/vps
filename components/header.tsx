@@ -40,7 +40,8 @@ export function Header() {
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {nav.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const current = pathname.length > 1 && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+            const active = current === item.href || current.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}

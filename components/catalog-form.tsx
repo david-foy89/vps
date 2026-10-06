@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { mailtoHref } from "@/lib/mailto";
 import { catalogSchema, type CatalogValues } from "@/lib/schemas";
 import { site } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
@@ -31,27 +32,17 @@ export function CatalogForm() {
     if (status.type !== "idle") statusRef.current?.focus();
   }, [status]);
 
-  async function onSubmit(values: CatalogValues) {
+  function onSubmit(values: CatalogValues) {
     setStatus({ type: "idle" });
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-      const data = (await response.json()) as { ok?: boolean; mailto?: string; error?: string };
-      if (!response.ok || !data.ok) {
-        setStatus({ type: "error", message: data.error || `The form did not send. Email ${site.email}.` });
-        return;
-      }
-      if (data.mailto) {
-        window.location.href = data.mailto;
-      }
-      setStatus({ type: "success", delivery: data.mailto ? "mailto" : "sent" });
-      reset({ formType: "catalog", name: "", company: "", jobTitle: "", email: "", website: "" });
-    } catch {
-      setStatus({ type: "error", message: `The form did not send. Call ${site.phoneDisplay}.` });
+    const blank = { formType: "catalog" as const, name: "", company: "", jobTitle: "", email: "", website: "" };
+    if (values.website) {
+      setStatus({ type: "success", delivery: "sent" });
+      reset(blank);
+      return;
     }
+    window.location.href = mailtoHref(values);
+    setStatus({ type: "success", delivery: "mailto" });
+    reset(blank);
   }
 
   if (status.type === "success") {

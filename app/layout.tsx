@@ -14,16 +14,24 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "sw
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+function metadataOrigin() {
+  const url = new URL(siteUrl);
+  const path = url.pathname.replace(/\/$/, "");
+  if (basePath && path === basePath) url.pathname = "/";
+  return url;
+}
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: metadataOrigin(),
   title: {
     default: "SureFire BMS in Texas, Oklahoma, and New Mexico",
     template: "%s | Vista Process Solutions",
   },
   description: site.description,
   applicationName: site.legalName,
-  icons: { icon: "/icon.svg" },
+  icons: { icon: `${basePath}/icon.svg` },
   openGraph: {
     type: "website",
     siteName: site.legalName,

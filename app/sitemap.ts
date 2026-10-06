@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return paths.map((path) => ({
-    url: absoluteUrl(path),
+    url: absoluteUrl(path === "/" ? "/" : `${path.replace(/\/$/, "")}/`),
     lastModified: new Date(),
   }));
 }
