@@ -62,7 +62,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-2 whitespace-nowrap lg:flex xl:gap-5" aria-label="Primary">
           {nav.map((item) => {
             if ("children" in item) {
               const active = item.children.some((child) => productLinkActive(child.href, path));

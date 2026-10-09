@@ -64,6 +64,7 @@ export const nav = [
   { href: "/solutions", label: "Solutions" },
   { href: "/service-area", label: "Service Area" },
   { href: "/resources", label: "Resources" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -73,6 +74,7 @@ export const footerNav = [
   { href: "/solutions", label: "Solutions" },
   { href: "/service-area", label: "Service Area" },
   { href: "/resources", label: "Resources" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/service", label: "Service and Support" },

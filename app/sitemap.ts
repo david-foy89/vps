@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/service",
     "/service-area",
     "/resources",
+    "/gallery",
     "/resources/catalog",
     "/about",
     "/contact",
