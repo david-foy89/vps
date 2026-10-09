@@ -33,11 +33,11 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
   return (
     <>
-      <PageHero eyebrow="Products" title={product.name} lede={product.summary}>
+      <PageHero eyebrow="SureFire Products" title={product.name} lede={product.summary}>
         <Breadcrumbs
           items={[
             { href: "/", label: "Home" },
-            { href: "/products", label: "Products" },
+            { href: "/products", label: "SureFire Products" },
             { label: product.name },
           ]}
         />

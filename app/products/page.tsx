@@ -17,11 +17,11 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Products"
+        eyebrow="SureFire Products"
         title="SureFire equipment, supplied by VPS"
         lede="VPS does not manufacture these systems. SureFire does. The pages below describe what VPS quotes, stocks parts for, and supports in Texas, Oklahoma, Louisiana, and southern New Mexico."
       >
-        <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Products" }]} />
+        <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "SureFire Products" }]} />
       </PageHero>
       <PageSection>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

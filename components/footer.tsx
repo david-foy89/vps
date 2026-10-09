@@ -27,6 +27,11 @@ export function Footer() {
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-white">Products</h2>
           <ul className="mt-3 space-y-2 text-sm">
+            <li>
+              <Link href="/products" className="hover:text-white">
+                SureFire Products
+              </Link>
+            </li>
             {products.map((product) => (
               <li key={product.slug}>
                 <Link href={`/products/${product.slug}`} className="hover:text-white">
@@ -34,6 +39,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/products/vps" className="hover:text-white">
+                VPS Products
+              </Link>
+            </li>
           </ul>
         </div>
         <div>

@@ -54,8 +54,13 @@ export function absoluteUrl(path = "/") {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+export const productNav = [
+  { href: "/products", label: "SureFire Products" },
+  { href: "/products/vps", label: "VPS Products" },
+] as const;
+
 export const nav = [
-  { href: "/products", label: "Products" },
+  { label: "Products", children: productNav },
   { href: "/solutions", label: "Solutions" },
   { href: "/service-area", label: "Service Area" },
   { href: "/resources", label: "Resources" },
@@ -64,7 +69,12 @@ export const nav = [
 ] as const;
 
 export const footerNav = [
-  ...nav,
+  ...productNav,
+  { href: "/solutions", label: "Solutions" },
+  { href: "/service-area", label: "Service Area" },
+  { href: "/resources", label: "Resources" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
   { href: "/service", label: "Service and Support" },
   { href: "/privacy", label: "Privacy Policy" },
 ] as const;
