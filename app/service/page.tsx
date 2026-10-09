@@ -9,7 +9,7 @@ import { programs, serviceItems, site } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "Service and Support",
   description:
-    "Local sales and service support for SureFire burner management systems in Texas, Oklahoma, and southern New Mexico. Call Vista Process Solutions at (830) 328-1411.",
+    "Local sales and service support for SureFire burner management systems in Texas, Oklahoma, Louisiana, and southern New Mexico. Call Vista Process Solutions at (830) 328-1411.",
   path: "/service",
 });
 
@@ -19,7 +19,7 @@ export default function ServicePage() {
       <PageHero
         eyebrow="Service"
         title="Support from the company that sold it"
-        lede="VPS is the sales and service representative in the territory. SureFire builds the equipment. When a unit in Texas, Oklahoma, or southern New Mexico needs a part, a startup, or a straight answer, the call comes here."
+        lede="VPS is the sales and service representative in the territory. SureFire builds the equipment. When a unit in Texas, Oklahoma, Louisiana, or southern New Mexico needs a part, a startup, or a straight answer, the call comes here."
       >
         <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Service and Support" }]} />
       </PageHero>

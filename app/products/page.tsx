@@ -9,7 +9,7 @@ import { products } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "SureFire BMS Products",
   description:
-    "BMS controllers, FT ignition units, air compressor packages, parts, and the SF-50 pilot maintainer. Supplied by Vista Process Solutions in Texas, Oklahoma, and southern New Mexico.",
+    "BMS controllers, FT ignition units, air compressor packages, parts, and the SF-50 pilot maintainer. Supplied by Vista Process Solutions in Texas, Oklahoma, Louisiana, and southern New Mexico.",
   path: "/products",
 });
 
@@ -19,7 +19,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Products"
         title="SureFire equipment, supplied by VPS"
-        lede="VPS does not manufacture these systems. SureFire does. The pages below describe what VPS quotes, stocks parts for, and supports in Texas, Oklahoma, and southern New Mexico."
+        lede="VPS does not manufacture these systems. SureFire does. The pages below describe what VPS quotes, stocks parts for, and supports in Texas, Oklahoma, Louisiana, and southern New Mexico."
       >
         <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Products" }]} />
       </PageHero>

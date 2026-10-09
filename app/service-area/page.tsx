@@ -10,7 +10,7 @@ import { statePages } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "Service Area",
   description:
-    "Vista Process Solutions covers all of Texas, all of Oklahoma, and southern New Mexico for SureFire BMS sales and service.",
+    "Vista Process Solutions covers all of Texas, all of Oklahoma, all of Louisiana, and southern New Mexico for SureFire BMS sales and service.",
   path: "/service-area",
 });
 
@@ -19,8 +19,8 @@ export default function ServiceAreaPage() {
     <>
       <PageHero
         eyebrow="Service area"
-        title="Texas, Oklahoma, and southern New Mexico"
-        lede="The agreement is statewide in Texas and Oklahoma. In New Mexico it is the southern portion of the state, not a license to claim the San Juan Basin. If you are unsure, call."
+        title="Texas, Oklahoma, Louisiana, and southern New Mexico"
+        lede="The agreement is statewide in Texas, Oklahoma, and Louisiana. In New Mexico it is the southern portion of the state, not a license to claim the San Juan Basin. If you are unsure, call."
       >
         <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Service Area" }]} />
       </PageHero>
@@ -43,7 +43,7 @@ export default function ServiceAreaPage() {
       </PageSection>
       <CTASection
         title="Not sure if we cover your site? Call us."
-        body="A county name is enough. VPS will tell you whether the location is in the territory before you spend time on a specification."
+        body="A county or parish is enough. VPS will tell you whether the location is in the territory before you spend time on a specification."
       />
     </>
   );

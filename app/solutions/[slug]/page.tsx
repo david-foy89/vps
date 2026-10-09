@@ -64,7 +64,7 @@ export default function SolutionPage({ params }: { params: Params }) {
         <p className="mt-8 text-sm text-slate-600">
           Service coverage is{" "}
           <Link href="/service-area" className="font-semibold text-navy underline">
-            Texas, Oklahoma, and southern New Mexico
+            Texas, Oklahoma, Louisiana, and southern New Mexico
           </Link>
           .
         </p>

@@ -38,7 +38,7 @@ export function TerritoryMap({ compact = false }: { compact?: boolean }) {
         <text x="132" y="100" textAnchor="middle" fill="#0B1F3A" fontSize="14" fontFamily="Manrope, sans-serif">
           New Mexico
         </text>
-        <text x="118" y="210" textAnchor="middle" fill="#0B1F3A" fontSize="13" fontWeight="700" fontFamily="Manrope, sans-serif">
+        <text x="145" y="208" textAnchor="middle" fill="#0B1F3A" fontSize="13" fontWeight="700" fontFamily="Manrope, sans-serif">
           Southern
         </text>
         <text x="430" y="105" textAnchor="middle" fill="#ffffff" fontSize="16" fontWeight="700" fontFamily="Manrope, sans-serif">
@@ -47,7 +47,7 @@ export function TerritoryMap({ compact = false }: { compact?: boolean }) {
         <text x="390" y="310" textAnchor="middle" fill="#ffffff" fontSize="22" fontWeight="700" fontFamily="Manrope, sans-serif">
           Texas
         </text>
-        <text x="630" y="270" textAnchor="middle" fill="#ffffff" fontSize="15" fontWeight="700" fontFamily="Manrope, sans-serif">
+        <text x="588" y="228" textAnchor="middle" fill="#ffffff" fontSize="13" fontWeight="700" fontFamily="Manrope, sans-serif">
           Louisiana
         </text>
       </svg>

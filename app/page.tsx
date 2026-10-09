@@ -56,7 +56,7 @@ export default function HomePage() {
               Exclusive SureFire BMS sales and service
             </p>
             <h1 className="mt-3 font-heading text-4xl font-semibold tracking-tight text-navy md:text-5xl">
-              Safer, cleaner, lower-cost burner management for Texas, Oklahoma, and New Mexico.
+              Safer, cleaner, lower-cost burner management for Texas, Oklahoma, Louisiana, and New Mexico.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
               Vista Process Solutions supplies and supports SureFire burner management systems for flares, combustors, heater treaters, and other fired equipment. SureFire builds the equipment. VPS is the representative on the ground.
@@ -144,7 +144,7 @@ export default function HomePage() {
               id="territory-heading"
               eyebrow="Service area"
               title="Local sales and service"
-              description="Texas and Oklahoma are covered statewide. New Mexico coverage is the southern part of the state. If a location might sit near that line, call before you write VPS into the bid."
+              description="Texas, Oklahoma, and Louisiana are covered statewide. New Mexico coverage is the southern part of the state. If a location might sit near that line, call before you write VPS into the bid."
             />
             <div className="mt-6">
               <Button asChild variant="secondary">
@@ -209,7 +209,7 @@ export default function HomePage() {
           <div>
             <SectionHeader id="about-heading" eyebrow="About VPS" title={site.tagline} />
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              VPS is an oilfield equipment supplier and the exclusive SureFire BMS representative for Texas, Oklahoma, and southern New Mexico.
+              VPS is an oilfield equipment supplier and the exclusive SureFire BMS representative for Texas, Oklahoma, Louisiana, and southern New Mexico.
             </p>
             <div className="mt-6">
               <Button asChild variant="secondary">
@@ -265,7 +265,7 @@ export default function HomePage() {
             id="programs-heading"
             eyebrow="From SureFire, through VPS"
             title="What you can count on"
-            description="These are SureFire program terms, available on equipment VPS quotes in Texas, Oklahoma, and southern New Mexico."
+            description="These are SureFire program terms, available on equipment VPS quotes in Texas, Oklahoma, Louisiana, and southern New Mexico."
           />
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {programs.map((item) => (
@@ -284,7 +284,7 @@ export default function HomePage() {
             Tell us what is on the location.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-600">
-            Vessel, burner size, and state are enough to start. VPS will come back with the SureFire equipment that fits, or with a straight answer if the site is outside southern New Mexico.
+            Vessel, burner size, and state are enough to start. VPS will come back with the SureFire equipment that fits, or with a straight answer if the site is outside the territory.
           </p>
           <p className="mt-4 text-sm text-slate-600">{site.hours}</p>
         </div>

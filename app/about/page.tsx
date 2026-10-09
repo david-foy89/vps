@@ -11,7 +11,7 @@ import { BLUR_DATA_URL } from "@/lib/utils";
 export const metadata: Metadata = pageMetadata({
   title: "About",
   description:
-    "Vista Process Solutions, LLC is an oilfield equipment supplier and the exclusive SureFire BMS sales and service representative for Texas, Oklahoma, and southern New Mexico.",
+    "Vista Process Solutions, LLC is an oilfield equipment supplier and the exclusive SureFire BMS sales and service representative for Texas, Oklahoma, Louisiana, and southern New Mexico.",
   path: "/about",
 });
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="space-y-4 leading-relaxed text-slate-700">
             <h2 className="font-heading text-2xl font-semibold text-navy">The relationship with SureFire</h2>
             <p>
-              SureFire designs and builds burner management systems, including the patented sparkless ignition in the FT ignition units. Vista Process Solutions is the exclusive sales and service representative for that equipment in Texas, Oklahoma, and southern New Mexico.
+              SureFire designs and builds burner management systems, including the patented sparkless ignition in the FT ignition units. Vista Process Solutions is the exclusive sales and service representative for that equipment in Texas, Oklahoma, Louisiana, and southern New Mexico.
             </p>
             <p>
               That split matters in a quote. VPS specifies, supplies, and supports the package. SureFire manufactures it, including the patented sparkless ignition. VPS is an authorized SureFire BMS representative for this territory.

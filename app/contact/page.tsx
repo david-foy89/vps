@@ -8,7 +8,7 @@ import { site } from "@/lib/site-config";
 export const metadata: Metadata = pageMetadata({
   title: "Contact and Request a Quote",
   description:
-    "Request a SureFire BMS quote from Vista Process Solutions, or call (830) 328-1411. Serving Texas, Oklahoma, and southern New Mexico.",
+    "Request a SureFire BMS quote from Vista Process Solutions, or call (830) 328-1411. Serving Texas, Oklahoma, Louisiana, and southern New Mexico.",
   path: "/contact",
 });
 

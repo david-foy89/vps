@@ -31,7 +31,7 @@ Published on the site:
 - ACP-100: 200 W solar, 100 Ah battery, about 60–70 scf/day
 - ACP-200: 400 W solar, 200 Ah battery, about 120–140 scf/day
 - Compressor warranty: 90 days from the date of sale
-- On-site startup in Texas, Oklahoma, and southern New Mexico
+- On-site startup in Texas, Oklahoma, Louisiana, and southern New Mexico
 - Phone support 24/7, with a technician available inside the territory
 - Quote within 24 hours, in-stock ship in 3–5 business days ARO, Try Before You Buy
 - VPS sends the SureFire catalog

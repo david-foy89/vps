@@ -26,7 +26,7 @@ function metadataOrigin() {
 export const metadata: Metadata = {
   metadataBase: metadataOrigin(),
   title: {
-    default: "SureFire BMS in Texas, Oklahoma, and New Mexico",
+    default: "SureFire BMS in Texas, Oklahoma, Louisiana, and New Mexico",
     template: "%s | Vista Process Solutions",
   },
   description: site.description,

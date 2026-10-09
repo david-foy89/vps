@@ -73,7 +73,11 @@ export default function StateLandingPage({ params }: { params: Params }) {
       </PageSection>
       <CTASection
         title="Not sure if we cover your site? Call us."
-        body={`If the location is in ${state.name}, or close to the New Mexico line, call before you assume either yes or no.`}
+        body={
+          state.slug === "new-mexico"
+            ? "Southern New Mexico is covered. If the site might sit near that line, call before you assume either yes or no."
+            : `Every site in ${state.name} is inside the territory. Call with the ${state.slug === "louisiana" ? "parish" : "county"} if you want that confirmed before a quote.`
+        }
       />
     </>
   );

@@ -1,6 +1,6 @@
 # Vista Process Solutions
 
-Marketing site for Vista Process Solutions, LLC, the exclusive SureFire Burner Management Systems sales and service representative in Texas, Oklahoma, and southern New Mexico.
+Marketing site for Vista Process Solutions, LLC, the exclusive SureFire Burner Management Systems sales and service representative in Texas, Oklahoma, Louisiana, and southern New Mexico.
 
 VPS supplies and supports the equipment. SureFire manufactures it. Do not add copy that says VPS designs, patents, or builds the systems.
 
@@ -65,7 +65,7 @@ After the domain is live, claim or update the Google Business Profile for Vista 
 - Use the same phone number, `(830) 328-1411`.
 - Use the office address: 192 Laguna Rd, Bandera, TX 78003.
 - Choose categories consistent with an oilfield equipment supplier.
-- Match the service area: Texas, Oklahoma, and southern New Mexico.
+- Match the service area: Texas, Oklahoma, Louisiana, and southern New Mexico.
 
 ## Before launch
 
