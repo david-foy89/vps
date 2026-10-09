@@ -95,14 +95,27 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             <h2 className="mt-14 font-heading text-2xl font-semibold text-navy">Models</h2>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               {product.models.map((model) => (
-                <article key={model.name} className="rounded-card border border-line bg-white p-5 shadow-card">
-                  <h3 className="font-heading text-lg font-semibold text-navy">{model.name}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{model.summary}</p>
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
-                    {model.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
+                <article key={model.name} className="overflow-hidden rounded-card border border-line bg-white shadow-card">
+                  {model.image ? (
+                    <div className={`relative aspect-[3/2] ${model.imageFit === "contain" ? "bg-neutral-950" : "bg-mist"}`}>
+                      <Image
+                        src={model.image}
+                        alt={model.imageAlt ?? model.name}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className={model.imageFit === "contain" ? "object-contain" : "object-cover object-top"}
+                      />
+                    </div>
+                  ) : null}
+                  <div className="p-5">
+                    <h3 className="font-heading text-lg font-semibold text-navy">{model.name}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{model.summary}</p>
+                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                      {model.points.map((point) => (
+                        <li key={point}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               ))}
             </div>

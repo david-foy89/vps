@@ -18,14 +18,15 @@ import { BLUR_DATA_URL } from "@/lib/utils";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "SureFire BMS Sales and Service in Texas, Oklahoma, and New Mexico | Vista Process Solutions",
+      "SureFire BMS Sales and Service in Texas, Oklahoma, Louisiana, and New Mexico | Vista Process Solutions",
   },
   description:
-    "Exclusive SureFire burner management sales and service for oilfield operators in Texas, Oklahoma, and southern New Mexico. Pilotless burners, sparkless ignition, and local support.",
+    "Exclusive SureFire burner management sales and service for oilfield operators in Texas, Oklahoma, Louisiana, and southern New Mexico. Pilotless burners, sparkless ignition, and local support.",
   keywords: [
     "SureFire BMS Texas",
     "burner management system Texas",
     "burner management system Oklahoma",
+    "burner management system Louisiana",
     "burner management system New Mexico",
     "pilotless burner",
     "sparkless ignition",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SureFire BMS Sales and Service | Vista Process Solutions",
     description:
-      "Safer, cleaner, lower-cost burner management for operators in Texas, Oklahoma, and southern New Mexico.",
+      "Safer, cleaner, lower-cost burner management for operators in Texas, Oklahoma, Louisiana, and southern New Mexico.",
     url: absoluteUrl("/"),
   },
 };

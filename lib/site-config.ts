@@ -5,7 +5,7 @@ export const site = {
   category: "Oil field equipment supplier",
   tagline: "A company built on experience and integrity.",
   description:
-    "Vista Process Solutions is the exclusive sales and service representative for SureFire Burner Management Systems in Texas, Oklahoma, and southern New Mexico.",
+    "Vista Process Solutions is the exclusive sales and service representative for SureFire Burner Management Systems in Texas, Oklahoma, Louisiana, and southern New Mexico.",
   phoneDisplay: "(830) 328-1411",
   phoneHref: "tel:+18303281411",
   phoneE164: "+1-830-328-1411",
@@ -20,7 +20,7 @@ export const site = {
   hours: "Monday–Friday, 8 AM–5 PM",
   facebook: "https://www.facebook.com/vistaprocesssolutions/",
   territory:
-    "Entire state of Texas, entire state of Oklahoma, and southern New Mexico",
+    "Entire state of Texas, entire state of Oklahoma, entire state of Louisiana, and southern New Mexico",
   logo: "/brand/logo.jpg",
   logoWidth: 413,
   logoHeight: 123,
@@ -60,7 +60,7 @@ export const productInterestOptions = [
   "Not sure yet",
 ] as const;
 
-export const locationOptions = ["Texas", "Oklahoma", "New Mexico", "Other"] as const;
+export const locationOptions = ["Texas", "Oklahoma", "Louisiana", "New Mexico", "Other"] as const;
 
 export type SpecRow = { label: string; value: string };
 
@@ -68,6 +68,9 @@ export type ProductModel = {
   name: string;
   summary: string;
   points: string[];
+  image?: string;
+  imageAlt?: string;
+  imageFit?: "contain";
 };
 
 export type Product = {
@@ -92,9 +95,9 @@ export const products: Product[] = [
     card: "Sequencing, flame proving, and fuel shutoff for fired oilfield equipment.",
     summary:
       "SureFire burner management controllers, supplied by VPS, supervise ignition and keep fuel from flowing when a flame is not proven. Match the controller to the equipment: a flare or combustor with a continuous pilot is a different job from a naturally drafted heater.",
-    image: "/images/products/3-2.png",
-    imageAlt:
-      "Red SureFire BMS-300 controller enclosure with status lights, a digital display, and a keypad",
+    image: "/images/products/bms-300.png",
+    imageAlt: "Red SureFire BMS-300 controller enclosure with status lights, a digital display, and a keypad",
+    imageFit: "contain",
     features: [
       "Simple wire termination and a parameter setup a field tech can finish without a laptop in most cases",
       "Hot-surface ignition supervision, temperature control, and fuel-valve control, depending on the model",
@@ -125,6 +128,9 @@ export const products: Product[] = [
       {
         name: "BMS-100",
         summary: "Pilot maintainer for flare, combustor, or firetube applications with a continuous pilot.",
+        image: "/images/products/bms-100.png",
+        imageAlt: "Red SureFire BMS-100 controller enclosure",
+        imageFit: "contain",
         points: [
           "Maintains the pilot and supervises it with a thermocouple",
           "Valve control, plus a standby/shutdown input",
@@ -134,6 +140,9 @@ export const products: Product[] = [
       {
         name: "BMS-300",
         summary: "Naturally drafted heaters. Temperature is read with an RTD.",
+        image: "/images/products/bms-300.png",
+        imageAlt: "Red SureFire BMS-300 controller enclosure",
+        imageFit: "contain",
         points: [
           "Controls the fuel train in a pilotless or piloted arrangement",
           "Flame rod flame sensing and valve control",
@@ -143,6 +152,9 @@ export const products: Product[] = [
       {
         name: "BMS-350",
         summary: "Fired equipment and combustors that need more than one temperature input.",
+        image: "/images/products/bms-350.png",
+        imageAlt: "Red SureFire BMS-350 controller enclosure",
+        imageFit: "contain",
         points: [
           "Thermocouple or RTD temperature circuits",
           "Thermocouple or flame-rod flame sensing",
@@ -161,9 +173,9 @@ export const products: Product[] = [
     card: "Pilotless and piloted ignition from a 1-inch, 125,000 BTU/hr burner up to the FT-8 at 1,500,000 BTU/hr.",
     summary:
       "SureFire FT and FTL-F ignition units use the company’s patented sparkless, hot-surface ignition. Pilotless firetube burners run from 1 inch (125,000 BTU/hr) through the 4-inch FT-8 (1,500,000 BTU/hr). Flare and combustor work uses the piloted FTL-F flame-front family.",
-    image: "/images/products/2-5.png",
-    imageAlt:
-      "SureFire model FT-8-A ignition unit with a stainless perforated nozzle, red body, and armored cable",
+    image: "/images/products/ft-8.png",
+    imageAlt: "SureFire FT-8-A ignition unit with a stainless perforated nozzle, red body, and armored cable",
+    imageFit: "contain",
     features: [
       "Hot-surface ignition: no spark gap and no ignition coil",
       "Armored, flame-resistant, conduit-ready wiring on SureFire ignition assemblies",
@@ -189,6 +201,9 @@ export const products: Product[] = [
       {
         name: "FT-1",
         summary: "Pilot for a firetube.",
+        image: "/images/products/ft-1.png",
+        imageAlt: "SureFire FT-1 pilot ignition unit with a stainless nozzle and red body",
+        imageFit: "contain",
         points: [
           "Hot-surface ignition",
           "1/2-inch NPT gas inlet",
@@ -199,6 +214,9 @@ export const products: Product[] = [
       {
         name: "FT-2",
         summary: "Pilotless firetube ignition for a 1-inch mixer.",
+        image: "/images/products/ft-2.png",
+        imageAlt: "SureFire FT-2A pilotless ignition unit",
+        imageFit: "contain",
         points: [
           "Direct ignition of the main burner",
           "1-inch NPT inlet",
@@ -209,6 +227,9 @@ export const products: Product[] = [
       {
         name: "FT-4",
         summary: "Pilotless firetube ignition for a 2-inch mixer.",
+        image: "/images/products/ft-4.png",
+        imageAlt: "SureFire FT-4-A pilotless ignition unit",
+        imageFit: "contain",
         points: [
           "2-inch NPT inlet",
           "2-inch air/gas mixer at 500,000 BTU/hr",
@@ -219,6 +240,9 @@ export const products: Product[] = [
       {
         name: "FT-6",
         summary: "Pilotless firetube ignition for a 3-inch mixer.",
+        image: "/images/products/ft-6.png",
+        imageAlt: "SureFire FT-6-A pilotless ignition unit",
+        imageFit: "contain",
         points: [
           "3-inch NPT inlet",
           "3-inch air/gas mixer at 1,000,000 BTU/hr",
@@ -229,6 +253,9 @@ export const products: Product[] = [
       {
         name: "FT-8",
         summary: "Pilotless firetube ignition for a 4-inch mixer. The largest FT unit.",
+        image: "/images/products/ft-8.png",
+        imageAlt: "SureFire FT-8-A ignition unit, the largest pilotless firetube burner",
+        imageFit: "contain",
         points: [
           "4-inch NPT inlet",
           "4-inch air/gas mixer at 1,500,000 BTU/hr",
@@ -239,6 +266,9 @@ export const products: Product[] = [
       {
         name: "FTL-F-MINI",
         summary: "Piloted ignition for combustors and enclosed flares.",
+        image: "/images/products/ftl-f-mini.png",
+        imageAlt: "SureFire FTL-F-MINI piloted ignition assembly with a mounting plate",
+        imageFit: "contain",
         points: [
           "1/4-inch NPT gas inlet",
           "Assemblies fitted to the stack or combustor",
@@ -248,11 +278,17 @@ export const products: Product[] = [
       {
         name: "FTL-F-20 / 30 / 40",
         summary: "Piloted units for combustors and enclosed flares.",
+        image: "/images/products/ftl-f-40.png",
+        imageAlt: "SureFire FTL-F piloted flare assembly, the 20, 30, or 40 length",
+        imageFit: "contain",
         points: ["1/4-inch NPT gas inlet", "Thermocouple flame sensing"],
       },
       {
         name: "FTL-F-72 / 96 / 200",
         summary: "Piloted flare pilots in three lengths.",
+        image: "/images/products/ftl-f-200.png",
+        imageAlt: "SureFire FTL-F long piloted flare assembly",
+        imageFit: "contain",
         points: [
           "1/4-inch NPT gas inlet",
           "Pilot lengths of 5 ft, 7 ft, and 17 ft",
@@ -267,9 +303,10 @@ export const products: Product[] = [
     card: "Solar and battery instrument air for remote pneumatics, so the site is not feeding controllers with field gas.",
     summary:
       "SureFire ACP-100 and ACP-200 packages make instrument air where there is no utility air. Replacing gas-powered pneumatic devices with compressed air is one of the practical ways operators cut methane from control loops on unmanned locations.",
-    image: "/images/products/1-3.png",
+    image: "/images/products/acp-100.png",
     imageAlt:
-      "SureFire solar air compressor package on a stand, shown from the solar-panel side and from the enclosure and tank side",
+      "SureFire ACP-100 solar air compressor, shown from the panel side and from the enclosure and tank side",
+    imageFit: "contain",
     features: [
       "Self-contained solar and battery power for locations without utility air or reliable grid power",
       "Enclosure, solar charge controller, mounting stand, and a 3-gallon storage tank",
@@ -304,6 +341,24 @@ export const products: Product[] = [
           "90 days from the date of sale.",
       },
     ],
+    models: [
+      {
+        name: "ACP-100",
+        summary: "The smaller solar instrument-air package.",
+        image: "/images/products/acp-100.png",
+        imageAlt: "SureFire ACP-100 solar air compressor package on a stand",
+        imageFit: "contain",
+        points: ["200 W solar panel", "100 Ah battery", "Sized around 60–70 scf/day"],
+      },
+      {
+        name: "ACP-200",
+        summary: "The larger solar instrument-air package.",
+        image: "/images/products/acp-200.png",
+        imageAlt: "SureFire ACP-200 solar air compressor with the panel raised",
+        imageFit: "contain",
+        points: ["400 W solar panel", "200 Ah battery", "Sized around 120–140 scf/day"],
+      },
+    ],
   },
   {
     slug: "components-and-parts",
@@ -311,9 +366,9 @@ export const products: Product[] = [
     card: "Valves, mixers, sensors, and service kits that keep a SureFire fuel train repairable.",
     summary:
       "VPS supplies the SureFire parts that sit around the controller and the ignition unit: actuator and solenoid valves, air/gas mixers, temperature sensors, and the kits techs actually consume. The point of stocking parts locally is less downtime when a rod, thermocouple, or valve is the only thing wrong.",
-    image: "/images/products/Cp.png",
-    imageAlt:
-      "Red SureFire actuator mounted on a stainless ball valve, with a position indicator dome on top",
+    image: "/images/products/actuator.png",
+    imageAlt: "Red SureFire actuator mounted on a stainless ball valve, with a position indicator dome on top",
+    imageFit: "contain",
     features: [
       "Fuel-train valves, including a factory-programmed actuator valve with 3-wire termination",
       "Fail-closed solenoid valves in stainless bodies",
@@ -343,6 +398,9 @@ export const products: Product[] = [
       {
         name: "SureFire actuator valve",
         summary: "Opens and closes main fuel gas to the burner.",
+        image: "/images/products/actuator.png",
+        imageAlt: "Red SureFire actuator on a stainless ball valve",
+        imageFit: "contain",
         points: [
           "Factory programmed and pre-wired",
           "3-wire termination",
@@ -351,13 +409,28 @@ export const products: Product[] = [
         ],
       },
       {
-        name: "Solenoid valves",
-        summary: "Fail-closed isolation in three sizes.",
-        points: [
-          "1/4-inch, 1-inch, and 2-inch",
-          "Stainless body, fail-closed, no field adjustment",
-          "1-inch and 2-inch: 12 VDC, 4.5 W, 5–115 psi",
-        ],
+        name: "2-inch solenoid valve",
+        summary: "Fail-closed isolation in a stainless body.",
+        image: "/images/products/solenoid-2in.png",
+        imageAlt: "SureFire 2-inch stainless solenoid valve",
+        imageFit: "contain",
+        points: ["Fail-closed, no field adjustment", "12 VDC, 4.5 W, 5–115 psi"],
+      },
+      {
+        name: "1-inch solenoid valve",
+        summary: "Fail-closed isolation in a stainless body.",
+        image: "/images/products/solenoid-1in.png",
+        imageAlt: "SureFire 1-inch stainless solenoid valve",
+        imageFit: "contain",
+        points: ["Fail-closed, no field adjustment", "12 VDC, 4.5 W, 5–115 psi"],
+      },
+      {
+        name: "1/4-inch solenoid valve",
+        summary: "The smallest fail-closed solenoid on the SureFire parts page.",
+        image: "/images/products/solenoid-quarter.png",
+        imageAlt: "SureFire 1/4-inch solenoid valve",
+        imageFit: "contain",
+        points: ["Stainless body", "Fail-closed, no field adjustment"],
       },
     ],
   },
@@ -392,7 +465,7 @@ export const products: Product[] = [
       { label: "Warranty", value: "Two years from the date of sale." },
     ],
     image: "/images/products/sf-50.png",
-    imageAlt: "SureFire SF-50 pilot maintainer, a white enclosure with the SureFire logo",
+    imageAlt: "SureFire SF-50 enclosure, a white box with the SureFire logo",
     imageFit: "contain",
   },
 ];
@@ -446,7 +519,7 @@ export const features: Feature[] = [
   },
   {
     title: "Local sales and service",
-    body: "This is the VPS difference. The same company that quotes the package is in Texas, Oklahoma, and southern New Mexico when the unit needs a part, a startup, or a straight answer. SureFire builds the equipment. VPS represents it here.",
+    body: "This is the VPS difference. The same company that quotes the package is in Texas, Oklahoma, Louisiana, and southern New Mexico when the unit needs a part, a startup, or a straight answer. SureFire builds the equipment. VPS represents it here.",
     icon: "map",
   },
 ];
@@ -522,7 +595,7 @@ export const solutions: Solution[] = [
       {
         heading: "What to send with the inquiry",
         paragraphs: [
-          "Vessel type, firetube diameter or mixer size, horizontal or vertical, fuel gas quality if it is a known problem, and whether you want to keep a pilot. Location in Texas, Oklahoma, or New Mexico is enough for VPS to say whether the site is in territory.",
+          "Vessel type, firetube diameter or mixer size, horizontal or vertical, fuel gas quality if it is a known problem, and whether you want to keep a pilot. Location in Texas, Oklahoma, Louisiana, or New Mexico is enough for VPS to say whether the site is in territory.",
         ],
       },
     ],
@@ -613,6 +686,29 @@ export const statePages: StatePage[] = [
     ],
   },
   {
+    slug: "louisiana",
+    name: "Louisiana",
+    title: "Burner Management Systems in Louisiana",
+    description:
+      "SureFire burner management sales and service across Louisiana. VPS supports flares, heater treaters, and pilotless firetube upgrades statewide.",
+    lede: "Louisiana is covered statewide. The Haynesville in the northwest and Gulf Coast production are inside the same agreement: Vista Process Solutions supplies and supports SureFire burner management systems. The office is in Bandera, Texas. There is no Louisiana storefront.",
+    sections: [
+      {
+        heading: "Fired equipment in Louisiana",
+        paragraphs: [
+          "Heater treaters, line heaters, and combustors on Haynesville and Gulf Coast production are the usual call. Pilotless FT units are sized to the mixer — 125,000 BTU/hr at 1 inch through 1,500,000 BTU/hr at 4 inches — and flare work moves to flame-front pilots instead of a firetube nozzle.",
+          "The office stays in Bandera, Texas. Coverage means sales, parts, and service support for any site in the state, not a second address.",
+        ],
+      },
+      {
+        heading: "How to start",
+        paragraphs: [
+          "Call (830) 328-1411 or send the quote form with the parish, the vessel, and whether the burner is piloted today. If you are comparing a full BMS-300 or BMS-350 against an SF-50 pilot maintainer, say what you need the unit to control. Temperature control and a standing pilot are different scopes.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "new-mexico",
     name: "New Mexico",
     title: "Burner Management Systems in Southern New Mexico",
@@ -648,7 +744,7 @@ export const serviceItems = [
   },
   {
     title: "Startup help",
-    body: "VPS starts SureFire equipment up on location in Texas, Oklahoma, and southern New Mexico. Call or send the service form to schedule it.",
+    body: "VPS starts SureFire equipment up on location in Texas, Oklahoma, Louisiana, and southern New Mexico. Call or send the service form to schedule it.",
   },
   {
     title: "Parts",
@@ -686,7 +782,7 @@ export const values = [
   },
   {
     title: "Integrity",
-    body: "VPS sells and services SureFire equipment. VPS does not manufacture it and did not design the sparkless ignition patent. If a site is outside southern New Mexico, the answer will say so.",
+    body: "VPS sells and services SureFire equipment. VPS does not manufacture it and did not design the sparkless ignition patent. If a site is outside the territory, including northern New Mexico, the answer will say so.",
   },
 ] as const;
 
@@ -716,6 +812,7 @@ export function organizationJsonLd() {
         areaServed: [
           { "@type": "State", name: "Texas" },
           { "@type": "State", name: "Oklahoma" },
+          { "@type": "State", name: "Louisiana" },
           { "@type": "AdministrativeArea", name: "Southern New Mexico" },
         ],
       },
@@ -746,6 +843,7 @@ export function organizationJsonLd() {
         areaServed: [
           { "@type": "State", name: "Texas" },
           { "@type": "State", name: "Oklahoma" },
+          { "@type": "State", name: "Louisiana" },
           { "@type": "AdministrativeArea", name: "Southern New Mexico" },
         ],
       },
