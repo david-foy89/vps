@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/chrome";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { pageMetadata } from "@/lib/metadata";
-import { site } from "@/lib/site-config";
+import { contacts, site } from "@/lib/site-config";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
@@ -25,14 +25,20 @@ export default function PrivacyPage() {
           <p>Effective date: [ADD PRIVACY POLICY DATE]</p>
           <h2>Who we are</h2>
           <p>
-            {site.legalName} operates this website. Phone: {site.phoneDisplay}. Email: {site.email}. Address: {site.address}.
+            {site.legalName} operates this website.{" "}
+            {contacts.map((person) => (
+              <span key={person.email}>
+                {person.name}: {person.phoneDisplay}, {person.email}.{" "}
+              </span>
+            ))}
+            Address: {site.address}.
           </p>
           <h2>What you send us</h2>
           <p>
             Quote and catalog forms collect the fields you fill in: name, company, job title, email, phone, location, product interest, and message, depending on the form. A hidden field is used to catch automated spam. If that field is filled, the submission is discarded and is not treated as a real inquiry.
           </p>
           <p>
-            The form opens a message in the visitor’s email app addressed to {site.email}. Sending that message delivers the request. Do not send payment card numbers or passwords through the form.
+            The form opens a message in the visitor’s email app addressed to {contacts.map((person) => person.email).join(" and ")}. Sending that message delivers the request. Do not send payment card numbers or passwords through the form.
           </p>
           <h2>Analytics</h2>
           <p>
@@ -44,7 +50,7 @@ export default function PrivacyPage() {
           </p>
           <h2>Your requests</h2>
           <p>
-            To ask what information a form submission contains, or to ask VPS to delete it, call {site.phoneDisplay} or email {site.email}.
+            To ask what information a form submission contains, or to ask VPS to delete it, call {contacts.map((person) => `${person.name} at ${person.phoneDisplay}`).join(" or ")} or email {contacts.map((person) => person.email).join(" or ")}.
           </p>
           <h2>Links</h2>
           <p>

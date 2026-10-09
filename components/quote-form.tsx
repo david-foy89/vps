@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { mailtoHref } from "@/lib/mailto";
 import { quoteSchema, type QuoteValues } from "@/lib/schemas";
-import { locationOptions, productInterestOptions, site } from "@/lib/site-config";
+import { contacts, locationOptions, productInterestOptions } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -71,14 +71,32 @@ export function QuoteForm({ compact = false, id = "quote" }: { compact?: boolean
         {status.delivery === "mailto" ? (
           <p className="mt-3 text-slate-700">
             Your email app should open a message to{" "}
-            <a className="font-semibold text-navy underline" href={site.emailHref}>{site.email}</a>.
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " and " : null}
+                <a className="font-semibold text-navy underline" href={person.emailHref}>{person.email}</a>
+              </span>
+            ))}
+            .
             Send that message to finish the request. You can also call{" "}
-            <a className="font-semibold text-navy underline" href={site.phoneHref}>{site.phoneDisplay}</a>.
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " or " : null}
+                <a className="font-semibold text-navy underline" href={person.phoneHref}>{person.name} at {person.phoneDisplay}</a>
+              </span>
+            ))}
+            .
           </p>
         ) : (
           <p className="mt-3 text-slate-700">
-            VPS has the details at {site.email} and will follow up at the email or phone you listed. If the job is time-sensitive, call{" "}
-            <a className="font-semibold text-navy underline" href={site.phoneHref}>{site.phoneDisplay}</a>.
+            VPS has the details at {contacts.map((person) => person.email).join(" and ")} and will follow up at the email or phone you listed. If the job is time-sensitive, call{" "}
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " or " : null}
+                <a className="font-semibold text-navy underline" href={person.phoneHref}>{person.name} at {person.phoneDisplay}</a>
+              </span>
+            ))}
+            .
           </p>
         )}
       </div>
@@ -161,12 +179,20 @@ export function QuoteForm({ compact = false, id = "quote" }: { compact?: boolean
         </p>
       ) : null}
 
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-5 flex flex-col items-start gap-3">
         <Button type="submit" disabled={isSubmitting} className="scroll-mb-20">
           {isSubmitting ? "Sending…" : "Request a Quote"}
         </Button>
         <p className="text-sm text-slate-600">
-          Or call <a className="font-semibold text-navy underline" href={site.phoneHref}>{site.phoneDisplay}</a>
+          Or call{" "}
+          {contacts.map((person, index) => (
+            <span key={person.email}>
+              {index > 0 ? " or " : null}
+              <a className="font-semibold text-navy underline" href={person.phoneHref}>
+                {person.name} {person.phoneDisplay}
+              </a>
+            </span>
+          ))}
         </p>
       </div>
     </form>

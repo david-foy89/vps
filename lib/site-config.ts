@@ -1,3 +1,22 @@
+export const contacts = [
+  {
+    name: "Mickey Perry",
+    phoneDisplay: "(830) 328-1411",
+    phoneHref: "tel:+18303281411",
+    phoneE164: "+1-830-328-1411",
+    email: "mickey.perry-vps@outlook.com",
+    emailHref: "mailto:mickey.perry-vps@outlook.com",
+  },
+  {
+    name: "Michael Perry",
+    phoneDisplay: "(830) 328-3074",
+    phoneHref: "tel:+18303283074",
+    phoneE164: "+1-830-328-3074",
+    email: "michael.perry-vps@outlook.com",
+    emailHref: "mailto:michael.perry-vps@outlook.com",
+  },
+] as const;
+
 export const site = {
   name: "Vista Process Solutions",
   legalName: "Vista Process Solutions, LLC",
@@ -6,11 +25,11 @@ export const site = {
   tagline: "A company built on experience and integrity.",
   description:
     "Vista Process Solutions is the exclusive sales and service representative for SureFire Burner Management Systems in Texas, Oklahoma, Louisiana, and southern New Mexico.",
-  phoneDisplay: "(830) 328-1411",
-  phoneHref: "tel:+18303281411",
-  phoneE164: "+1-830-328-1411",
-  email: "mickey-vps@outlook.com",
-  emailHref: "mailto:mickey-vps@outlook.com",
+  phoneDisplay: contacts[0].phoneDisplay,
+  phoneHref: contacts[0].phoneHref,
+  phoneE164: contacts[0].phoneE164,
+  email: contacts[0].email,
+  emailHref: contacts[0].emailHref,
   streetAddress: "192 Laguna Rd",
   addressLocality: "Bandera",
   addressRegion: "TX",
@@ -651,7 +670,7 @@ export const statePages: StatePage[] = [
         heading: "What Texas operators call about",
         paragraphs: [
           "Heater treaters and line heaters that will not hold a flame, combustors lighting off a fence charger, and pneumatic controllers still running on supply gas. The equipment answer is usually a SureFire controller, an FT or FTL-F ignition unit, an SF-50, or an air compressor package — sometimes a valve and a flame rod, not a new skid.",
-          "VPS is the sales and service representative. SureFire designs and builds the systems, including the patented sparkless ignition. Quotes, parts questions, and startup help for Texas locations come through VPS at (830) 328-1411.",
+          `VPS is the sales and service representative. SureFire designs and builds the systems, including the patented sparkless ignition. Quotes, parts questions, and startup help for Texas locations come through ${contacts[0].name} at ${contacts[0].phoneDisplay} or ${contacts[1].name} at ${contacts[1].phoneDisplay}.`,
         ],
       },
       {
@@ -680,7 +699,7 @@ export const statePages: StatePage[] = [
       {
         heading: "How to start",
         paragraphs: [
-          "Call (830) 328-1411 or send the quote form with the county, the vessel, and whether the burner is piloted today. If you are comparing a full BMS-300 or BMS-350 against an SF-50 pilot maintainer, say what you need the unit to control. Temperature control and a standing pilot are different scopes.",
+          `Call ${contacts[0].name} at ${contacts[0].phoneDisplay} or ${contacts[1].name} at ${contacts[1].phoneDisplay}, or send the quote form with the county, the vessel, and whether the burner is piloted today. If you are comparing a full BMS-300 or BMS-350 against an SF-50 pilot maintainer, say what you need the unit to control. Temperature control and a standing pilot are different scopes.`,
         ],
       },
     ],
@@ -703,7 +722,7 @@ export const statePages: StatePage[] = [
       {
         heading: "How to start",
         paragraphs: [
-          "Call (830) 328-1411 or send the quote form with the parish, the vessel, and whether the burner is piloted today. If you are comparing a full BMS-300 or BMS-350 against an SF-50 pilot maintainer, say what you need the unit to control. Temperature control and a standing pilot are different scopes.",
+          `Call ${contacts[0].name} at ${contacts[0].phoneDisplay} or ${contacts[1].name} at ${contacts[1].phoneDisplay}, or send the quote form with the parish, the vessel, and whether the burner is piloted today. If you are comparing a full BMS-300 or BMS-350 against an SF-50 pilot maintainer, say what you need the unit to control. Temperature control and a standing pilot are different scopes.`,
         ],
       },
     ],
@@ -720,7 +739,7 @@ export const statePages: StatePage[] = [
         heading: "Southern New Mexico only",
         paragraphs: [
           "Do not assume coverage in Farmington, the San Juan Basin, or the northern half of the state. Those locations are outside the territory described for VPS. SureFire’s own manufacturing presence in New Mexico is not the same thing as VPS’s sales territory, and this site will not blur the two.",
-          "If you operate near Roswell, Alamogordo, Las Cruces, Deming, or anywhere you would fairly call southern New Mexico, call (830) 328-1411 before you spec the job. VPS would rather tell you straight than leave a gap in a bid.",
+          `If you operate near Roswell, Alamogordo, Las Cruces, Deming, or anywhere you would fairly call southern New Mexico, call ${contacts[0].name} at ${contacts[0].phoneDisplay} or ${contacts[1].name} at ${contacts[1].phoneDisplay} before you spec the job. VPS would rather tell you straight than leave a gap in a bid.`,
         ],
       },
       {
@@ -788,6 +807,15 @@ export const values = [
 
 export function organizationJsonLd() {
   const url = getSiteUrl();
+  const contactPoint = contacts.map((person) => ({
+    "@type": "ContactPoint",
+    name: person.name,
+    telephone: person.phoneE164,
+    email: person.email,
+    contactType: "customer support",
+  }));
+  const telephones = contacts.map((person) => person.phoneE164);
+  const emails = contacts.map((person) => person.email);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -796,8 +824,9 @@ export function organizationJsonLd() {
         "@id": `${url}/#organization`,
         name: site.legalName,
         url,
-        telephone: site.phoneE164,
-        email: site.email,
+        telephone: telephones,
+        email: emails,
+        contactPoint,
         logo: absoluteUrl(site.logo),
         description: site.description,
         sameAs: [site.facebook],
@@ -821,8 +850,9 @@ export function organizationJsonLd() {
         "@id": `${url}/#localbusiness`,
         name: site.legalName,
         url,
-        telephone: site.phoneE164,
-        email: site.email,
+        telephone: telephones,
+        email: emails,
+        contactPoint,
         image: absoluteUrl(site.logo),
         description: site.description,
         address: {

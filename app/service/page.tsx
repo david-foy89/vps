@@ -4,12 +4,12 @@ import { Breadcrumbs } from "@/components/chrome";
 import { CTASection } from "@/components/cta-section";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { pageMetadata } from "@/lib/metadata";
-import { programs, serviceItems, site } from "@/lib/site-config";
+import { contacts, programs, serviceItems, site } from "@/lib/site-config";
 
 export const metadata: Metadata = pageMetadata({
   title: "Service and Support",
   description:
-    "Local sales and service support for SureFire burner management systems in Texas, Oklahoma, Louisiana, and southern New Mexico. Call Vista Process Solutions at (830) 328-1411.",
+    "Local sales and service support for SureFire burner management systems in Texas, Oklahoma, Louisiana, and southern New Mexico. Call Mickey Perry or Michael Perry.",
   path: "/service",
 });
 
@@ -36,8 +36,25 @@ export default function ServicePage() {
         <h2 className="mt-14 font-heading text-2xl font-semibold text-navy">How to request service</h2>
         <ol className="mt-4 max-w-3xl list-decimal space-y-3 pl-5 leading-relaxed text-slate-700">
           <li>
-            Call <a className="font-semibold text-navy underline" href={site.phoneHref}>{site.phoneDisplay}</a>, email{" "}
-            <a className="font-semibold text-navy underline" href={site.emailHref}>{site.email}</a>, or send the{" "}
+            Call{" "}
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " or " : null}
+                <a className="font-semibold text-navy underline" href={person.phoneHref}>
+                  {person.name} at {person.phoneDisplay}
+                </a>
+              </span>
+            ))}
+            , email{" "}
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " or " : null}
+                <a className="font-semibold text-navy underline" href={person.emailHref}>
+                  {person.email}
+                </a>
+              </span>
+            ))}
+            , or send the{" "}
             <Link href="/contact" className="font-semibold text-navy underline">quote form</Link> and choose “Service or repair.”
           </li>
           <li>Give the state and county, the SureFire model if it is on the tag, and what the unit is doing — or not doing.</li>
@@ -55,7 +72,7 @@ export default function ServicePage() {
       </PageSection>
       <CTASection
         title="Call for service"
-        body={`${site.phoneDisplay}. If you are not sure the site is covered, say the county first.`}
+        body={`${contacts.map((person) => `${person.name} ${person.phoneDisplay}`).join(" or ")}. If you are not sure the site is covered, say the county or parish first.`}
       />
     </>
   );

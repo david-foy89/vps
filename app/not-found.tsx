@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -27,9 +27,13 @@ export default function NotFound() {
         <li>
           <Link href="/contact" className="font-semibold underline">Contact</Link>
         </li>
-        <li>
-          <a href={site.phoneHref} className="font-semibold underline">Call {site.phoneDisplay}</a>
-        </li>
+        {contacts.map((person) => (
+          <li key={person.email}>
+            <a href={person.phoneHref} className="font-semibold underline">
+              {person.name} {person.phoneDisplay}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

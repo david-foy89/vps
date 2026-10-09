@@ -12,7 +12,7 @@ import { SectionHeader } from "@/components/section-header";
 import { TerritoryMap } from "@/components/territory-map";
 import { Button } from "@/components/ui/button";
 import { getArticles, formatArticleDate } from "@/lib/articles";
-import { absoluteUrl, features, outcomes, products, programs, site } from "@/lib/site-config";
+import { absoluteUrl, contacts, features, outcomes, products, programs, site } from "@/lib/site-config";
 import { BLUR_DATA_URL } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -61,16 +61,18 @@ export default function HomePage() {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
               Vista Process Solutions supplies and supports SureFire burner management systems for flares, combustors, heater treaters, and other fired equipment. SureFire builds the equipment. VPS is the representative on the ground.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg">
                 <Link href="/contact">Request a Quote</Link>
               </Button>
-              <Button asChild size="lg" variant="secondary">
-                <a href={site.phoneHref}>
-                  <Phone className="h-4 w-4" aria-hidden="true" />
-                  Call {site.phoneDisplay}
-                </a>
-              </Button>
+              {contacts.map((person) => (
+                <Button asChild size="lg" variant="secondary" key={person.email}>
+                  <a href={person.phoneHref}>
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                    {person.name} {person.phoneDisplay}
+                  </a>
+                </Button>
+              ))}
             </div>
             <div className="mt-8">
               <AuthorizedBadge />
@@ -293,7 +295,7 @@ export default function HomePage() {
 
       <CTASection
         title="Prefer the phone?"
-        body={`Call ${site.phoneDisplay}. The line is the same one published for sales and service across the territory.`}
+        body={`Call ${contacts.map((person) => `${person.name} at ${person.phoneDisplay}`).join(" or ")}. Both lines are published for sales and service across the territory.`}
         showFormLink={false}
       />
     </>

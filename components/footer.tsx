@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { footerNav, products, site } from "@/lib/site-config";
 import { AuthorizedBadge } from "@/components/chrome";
+import { ContactPeople } from "@/components/contact-people";
 
 export function Footer() {
   return (
@@ -37,17 +38,10 @@ export function Footer() {
         </div>
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-white">Contact</h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>
-              <a href={site.phoneHref} className="font-semibold text-white">
-                {site.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <a href={site.emailHref} className="hover:text-white">
-                {site.email}
-              </a>
-            </li>
+          <div className="mt-3 text-sm">
+            <ContactPeople tone="light" />
+          </div>
+          <ul className="mt-4 space-y-2 text-sm">
             <li>
               <a href={site.addressHref} className="hover:text-white">
                 {site.address}

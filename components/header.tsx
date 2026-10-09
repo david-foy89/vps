@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, Phone, X } from "lucide-react";
-import { nav, site } from "@/lib/site-config";
+import { nav, contacts, site } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -59,13 +59,19 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href={site.phoneHref}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-navy"
-          >
-            <Phone className="h-4 w-4 text-safety-ink" aria-hidden="true" />
-            {site.phoneDisplay}
-          </a>
+          <div className="flex flex-col items-end leading-tight">
+            {contacts.map((person) => (
+              <a
+                key={person.email}
+                href={person.phoneHref}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-navy"
+              >
+                <Phone className="h-3.5 w-3.5 text-safety-ink" aria-hidden="true" />
+                <span>{person.name}</span>
+                <span>{person.phoneDisplay}</span>
+              </a>
+            ))}
+          </div>
           <Button asChild>
             <Link href="/contact">Request a Quote</Link>
           </Button>
@@ -98,10 +104,16 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <a href={site.phoneHref} className="mt-4 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-navy text-base font-semibold text-white">
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              Call {site.phoneDisplay}
-            </a>
+            {contacts.map((person) => (
+              <a
+                key={person.email}
+                href={person.phoneHref}
+                className="mt-3 inline-flex h-12 items-center justify-center gap-2 rounded-md bg-navy text-base font-semibold text-white"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                {person.name} {person.phoneDisplay}
+              </a>
+            ))}
             <Link
               href="/contact"
               className="mt-3 inline-flex h-12 items-center justify-center rounded-md bg-safety text-base font-semibold text-navy"

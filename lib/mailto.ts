@@ -1,5 +1,5 @@
 import type { ContactPayload } from "@/lib/schemas";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 
 function linesFor(payload: ContactPayload) {
   if (payload.formType === "catalog") {
@@ -40,5 +40,6 @@ export function emailSubject(payload: ContactPayload) {
 export function mailtoHref(payload: ContactPayload) {
   const subject = encodeURIComponent(emailSubject(payload));
   const body = encodeURIComponent(emailBody(payload));
-  return `mailto:${site.email}?subject=${subject}&body=${body}`;
+  const to = contacts.map((person) => person.email).join(",");
+  return `mailto:${to}?subject=${subject}&body=${body}`;
 }

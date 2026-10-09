@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { mailtoHref } from "@/lib/mailto";
 import { catalogSchema, type CatalogValues } from "@/lib/schemas";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -51,9 +51,16 @@ export function CatalogForm() {
         <h2 className="font-heading text-2xl font-semibold text-navy">Request received.</h2>
         <p className="mt-3 text-slate-700">
           {status.delivery === "mailto"
-            ? `Your email app should open a catalog request to ${site.email}. Send that message to finish the request.`
-            : `VPS will follow up from ${site.email} with the product catalog.`}{" "}
-          You can also call <a className="font-semibold underline" href={site.phoneHref}>{site.phoneDisplay}</a>.
+            ? `Your email app should open a catalog request to ${contacts.map((person) => person.email).join(" and ")}. Send that message to finish the request.`
+            : `VPS will follow up from ${contacts.map((person) => person.email).join(" and ")} with the product catalog.`}{" "}
+          You can also call{" "}
+          {contacts.map((person, index) => (
+            <span key={person.email}>
+              {index > 0 ? " or " : null}
+              <a className="font-semibold underline" href={person.phoneHref}>{person.name} at {person.phoneDisplay}</a>
+            </span>
+          ))}
+          .
         </p>
       </div>
     );

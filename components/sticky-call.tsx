@@ -1,14 +1,22 @@
 import { Phone } from "lucide-react";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 
 export function StickyCall() {
   return (
-    <a
-      href={site.phoneHref}
-      className="on-navy fixed inset-x-0 bottom-0 z-30 flex h-14 items-center justify-center gap-2 bg-safety text-sm font-semibold text-navy shadow-lift md:hidden"
-    >
-      <Phone className="h-4 w-4" aria-hidden="true" />
-      Call {site.phoneDisplay}
-    </a>
+    <div className="fixed inset-x-0 bottom-0 z-30 grid h-14 grid-cols-2 md:hidden">
+      {contacts.map((person) => (
+        <a
+          key={person.email}
+          href={person.phoneHref}
+          className="on-navy flex flex-col items-center justify-center gap-0.5 border-r border-navy/15 bg-safety text-[11px] font-semibold leading-tight text-navy last:border-r-0"
+        >
+          <span className="inline-flex items-center gap-1">
+            <Phone className="h-3.5 w-3.5" aria-hidden="true" />
+            {person.name}
+          </span>
+          <span>{person.phoneDisplay}</span>
+        </a>
+      ))}
+    </div>
   );
 }

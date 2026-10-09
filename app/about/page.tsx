@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Facebook, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, MapPin, Phone } from "lucide-react";
 import { Breadcrumbs } from "@/components/chrome";
 import { CTASection } from "@/components/cta-section";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { pageMetadata } from "@/lib/metadata";
-import { site, values } from "@/lib/site-config";
+import { contacts, site, values } from "@/lib/site-config";
 import { BLUR_DATA_URL } from "@/lib/utils";
 
 export const metadata: Metadata = pageMetadata({
@@ -48,34 +48,22 @@ export default function AboutPage() {
         </div>
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-          <li>
-            <a
-              href={site.phoneHref}
-              className="flex h-full items-start gap-3 rounded-card border border-line bg-mist p-4 hover:border-navy/30 hover:bg-white"
-            >
+          {contacts.map((person) => (
+            <li key={person.email} className="flex h-full items-start gap-3 rounded-card border border-line bg-mist p-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy text-white">
                 <Phone className="h-5 w-5" aria-hidden="true" />
               </span>
-              <span>
-                <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Phone</span>
-                <span className="mt-1 block font-semibold text-navy">{site.phoneDisplay}</span>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              href={site.emailHref}
-              className="flex h-full items-start gap-3 rounded-card border border-line bg-mist p-4 hover:border-navy/30 hover:bg-white"
-            >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy text-white">
-                <Mail className="h-5 w-5" aria-hidden="true" />
-              </span>
               <span className="min-w-0">
-                <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">Email</span>
-                <span className="mt-1 block font-semibold text-navy">{site.email}</span>
+                <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500">{person.name}</span>
+                <a className="mt-1 block font-semibold text-navy underline" href={person.phoneHref}>
+                  {person.phoneDisplay}
+                </a>
+                <a className="mt-1 block break-all font-semibold text-navy underline" href={person.emailHref}>
+                  {person.email}
+                </a>
               </span>
-            </a>
-          </li>
+            </li>
+          ))}
           <li>
             <a
               href={site.addressHref}
@@ -123,7 +111,7 @@ export default function AboutPage() {
       </PageSection>
       <CTASection
         title="Talk to VPS"
-        body={`Sales and service: ${site.phoneDisplay}. ${site.hours}.`}
+        body={`Sales and service: ${contacts.map((person) => `${person.name} ${person.phoneDisplay}`).join(", ")}. ${site.hours}.`}
       />
     </>
   );

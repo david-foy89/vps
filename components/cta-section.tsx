@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -26,12 +26,20 @@ export function CTASection({
               <Link href="/contact">Request a Quote</Link>
             </Button>
           ) : null}
-          <Button asChild size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10">
-            <a href={site.phoneHref}>
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              Call {site.phoneDisplay}
-            </a>
-          </Button>
+          {contacts.map((person) => (
+            <Button
+              key={person.email}
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/30 bg-transparent text-white hover:bg-white/10"
+            >
+              <a href={person.phoneHref}>
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                {person.name} {person.phoneDisplay}
+              </a>
+            </Button>
+          ))}
         </div>
       </div>
     </section>

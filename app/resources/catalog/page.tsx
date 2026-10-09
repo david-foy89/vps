@@ -3,7 +3,7 @@ import { Breadcrumbs } from "@/components/chrome";
 import { CatalogForm } from "@/components/catalog-form";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { pageMetadata } from "@/lib/metadata";
-import { site } from "@/lib/site-config";
+import { contacts } from "@/lib/site-config";
 
 export const metadata: Metadata = pageMetadata({
   title: "Request a Product Catalog",
@@ -32,7 +32,14 @@ export default function CatalogPage() {
         <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <CatalogForm />
           <p className="text-sm leading-relaxed text-slate-700">
-            The request goes to <a className="font-semibold text-navy underline" href={site.emailHref}>{site.email}</a>.
+            The request goes to{" "}
+            {contacts.map((person, index) => (
+              <span key={person.email}>
+                {index > 0 ? " and " : null}
+                <a className="font-semibold text-navy underline" href={person.emailHref}>{person.email}</a>
+              </span>
+            ))}
+            .
             VPS sends the SureFire catalog back to the address on the form.
           </p>
         </div>

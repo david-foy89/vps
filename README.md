@@ -27,7 +27,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 `npm run build` writes a static site to `out/`, including `out/index.html`. GitHub Pages serves that folder. `npm run dev` is still the local preview. `npm run lint` runs ESLint.
 
-The public inbox is mickey-vps@outlook.com. Quote and catalog forms check the fields in the browser, then open a message to that inbox in the visitor’s email app. GitHub Pages cannot run a mail server, so the site does not send mail itself.
+The public inboxes are mickey.perry-vps@outlook.com and michael.perry-vps@outlook.com. Quote and catalog forms check the fields in the browser, then open a message to both inboxes in the visitor’s email app. GitHub Pages cannot run a mail server, so the site does not send mail itself.
 
 ## Environment variables
 
@@ -62,7 +62,7 @@ SureFire’s logo is not used as the VPS logo.
 After the domain is live, claim or update the Google Business Profile for Vista Process Solutions, LLC:
 
 - Set the website to `NEXT_PUBLIC_SITE_URL`.
-- Use the same phone number, `(830) 328-1411`.
+- Use the same phone numbers: Mickey Perry `(830) 328-1411`, Michael Perry `(830) 328-3074`.
 - Use the office address: 192 Laguna Rd, Bandera, TX 78003.
 - Choose categories consistent with an oilfield equipment supplier.
 - Match the service area: Texas, Oklahoma, Louisiana, and southern New Mexico.

@@ -18,7 +18,7 @@ Do not invent customers, years in business, certifications, or testimonials to c
 
 Published on the site:
 
-- Email mickey-vps@outlook.com and Facebook https://www.facebook.com/vistaprocesssolutions/
+- Email mickey.perry-vps@outlook.com (Mickey Perry) and michael.perry-vps@outlook.com (Michael Perry). Facebook https://www.facebook.com/vistaprocesssolutions/
 - Office hours: Monday–Friday, 8 AM–5 PM
 - Office address: 192 Laguna Rd, Bandera, TX 78003
 - Authorized SureFire BMS Representative badge
