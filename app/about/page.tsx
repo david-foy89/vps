@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Facebook, MapPin, Phone } from "lucide-react";
-import { Breadcrumbs } from "@/components/chrome";
+import { Breadcrumbs, Tagline } from "@/components/chrome";
 import { CTASection } from "@/components/cta-section";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { pageMetadata } from "@/lib/metadata";
@@ -18,12 +18,13 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About" title={site.tagline} lede={site.description}>
+      <PageHero eyebrow="About" title={site.statement} lede={site.description}>
         <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "About" }]} />
       </PageHero>
       <PageSection>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4 leading-relaxed text-slate-700">
+            <Tagline />
             <h2 className="font-heading text-2xl font-semibold text-navy">The relationship with SureFire</h2>
             <p>
               SureFire designs and builds burner management systems, including the patented sparkless ignition in the FT ignition units. Vista Process Solutions is the exclusive sales and service representative for that equipment in Texas, Oklahoma, Louisiana, and southern New Mexico.

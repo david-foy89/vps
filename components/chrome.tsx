@@ -1,7 +1,18 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { BadgeCheck } from "lucide-react";
+import { site } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+
+export function Tagline({ className, light = false }: { className?: string; light?: boolean }) {
+  const [lead, rest] = site.tagline.split(", ");
+
+  return (
+    <p className={cn("font-heading text-xl font-semibold tracking-tight", light ? "text-white" : "text-navy", className)}>
+      {lead}, <span className={light ? "text-safety" : "text-safety-ink"}>{rest}</span>
+    </p>
+  );
+}
 
 export function AuthorizedBadge({ className, light = false }: { className?: string; light?: boolean }) {
   return (

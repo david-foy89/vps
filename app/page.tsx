@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { AuthorizedBadge } from "@/components/chrome";
+import { AuthorizedBadge, Tagline } from "@/components/chrome";
 import { CTASection } from "@/components/cta-section";
 import { FadeIn } from "@/components/fade-in";
 import { FeatureCard } from "@/components/feature-card";
@@ -61,6 +61,7 @@ export default function HomePage() {
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
               Vista Process Solutions supplies and supports SureFire burner management systems for flares, combustors, heater treaters, and other fired equipment. SureFire builds the equipment. VPS is the representative on the ground.
             </p>
+            <Tagline className="mt-5" />
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg">
                 <Link href="/contact">Request a Quote</Link>
@@ -209,7 +210,8 @@ export default function HomePage() {
       <section className="border-y border-line bg-mist" aria-labelledby="about-heading">
         <div className="mx-auto grid max-w-page gap-8 px-4 py-16 md:px-6 md:py-20 lg:grid-cols-2">
           <div>
-            <SectionHeader id="about-heading" eyebrow="About VPS" title={site.tagline} />
+            <SectionHeader id="about-heading" eyebrow="About VPS" title={site.statement} />
+            <Tagline className="mt-4" />
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
               VPS is an oilfield equipment supplier and the exclusive SureFire BMS representative for Texas, Oklahoma, Louisiana, and southern New Mexico.
             </p>

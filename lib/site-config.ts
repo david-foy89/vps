@@ -22,7 +22,8 @@ export const site = {
   legalName: "Vista Process Solutions, LLC",
   shortName: "VPS",
   category: "Oil field equipment supplier",
-  tagline: "A company built on experience and integrity.",
+  tagline: "On time, every time.",
+  statement: "A company built on experience and integrity.",
   description:
     "Vista Process Solutions is the exclusive sales and service representative for SureFire Burner Management Systems in Texas, Oklahoma, Louisiana, and southern New Mexico.",
   phoneDisplay: contacts[0].phoneDisplay,
@@ -840,6 +841,7 @@ export function organizationJsonLd() {
         email: emails,
         contactPoint,
         logo: absoluteUrl(site.logo),
+        slogan: site.tagline,
         description: site.description,
         sameAs: [site.facebook],
         address: {
@@ -866,6 +868,7 @@ export function organizationJsonLd() {
         email: emails,
         contactPoint,
         image: absoluteUrl(site.logo),
+        slogan: site.tagline,
         description: site.description,
         address: {
           "@type": "PostalAddress",

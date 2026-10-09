@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerNav, products, site } from "@/lib/site-config";
-import { AuthorizedBadge } from "@/components/chrome";
+import { AuthorizedBadge, Tagline } from "@/components/chrome";
 import { ContactPeople } from "@/components/contact-people";
 
 export function Footer() {
@@ -9,7 +9,8 @@ export function Footer() {
       <div className="mx-auto grid max-w-page gap-10 px-4 py-14 md:grid-cols-2 md:px-6 lg:grid-cols-4">
         <div>
           <p className="font-heading text-lg font-semibold text-white">{site.legalName}</p>
-          <p className="mt-3 text-sm leading-relaxed">{site.tagline}</p>
+          <Tagline light className="mt-3 text-lg" />
+          <p className="mt-2 text-sm leading-relaxed">{site.statement}</p>
           <AuthorizedBadge light className="mt-4" />
         </div>
         <div>

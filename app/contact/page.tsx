@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/chrome";
+import { Breadcrumbs, Tagline } from "@/components/chrome";
 import { ContactPeople } from "@/components/contact-people";
 import { PageHero, PageSection } from "@/components/page-hero";
 import { QuoteForm } from "@/components/quote-form";
@@ -27,6 +27,7 @@ export default function ContactPage() {
       <PageSection>
         <div className="grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <aside className="space-y-6 text-sm leading-relaxed text-slate-700">
+            <Tagline className="border-b border-line pb-4" />
             <div>
               <h2 className="font-heading text-lg font-semibold text-navy">Sales and service</h2>
               <div className="mt-3">
